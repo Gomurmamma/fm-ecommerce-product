@@ -1,0 +1,19 @@
+{
+  "name": "fm-ecommerce-product",
+  "version": "1.0.0",
+  "description": "This is a solution to the FrontEnd Mentors E-commerce product page challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gomurmamma/fm-ecommerce-product.git"
+  },
+  "author": "Donald Antonio Young",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gomurmamma/fm-ecommerce-product/issues"
+  },
+  "homepage": "https://github.com/Gomurmamma/fm-ecommerce-product#readme"
+}
