@@ -4,7 +4,11 @@
   "description": "This is a solution to the FrontEnd Mentors E-commerce product page challenge",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
