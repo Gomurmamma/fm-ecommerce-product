@@ -1,4 +1,4 @@
-@import url("https://fonts.google.com/specimen/Kumbh+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
 :root {
   // COLOR VARIABLES
@@ -24,6 +24,7 @@
 
   // FONT VARIABLES
   --font-primary: "Kumbh Sans", sans-serif;
+  --font-body-size: 1.6rem;
 }
 
 *,
@@ -45,6 +46,7 @@ body {
   --color-text-primary: var(--text-black);
   --color-bg-primary: var(--background-color-white);
   --color-element-primary: var(--background-color-orange);
+  --size-font-body: var(--font-body-size);
 }
 
 ul[role="list"],
@@ -56,6 +58,8 @@ ol[role="list"] {
 body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
+  font-size: var(--size-font-body);
+  font-weight: 400;
   transition: background 0.25s ease-in-out;
 }
 
