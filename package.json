@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:e2e": "playwright test",
+    "test:e2e:skipbuild": "SKIP_BUILD=1 playwright test",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -26,6 +28,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.29.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/node": "^18.11.18",
