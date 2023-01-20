@@ -1,0 +1,63 @@
+@import url("https://fonts.google.com/specimen/Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  // COLOR VARIABLES
+  --color-primary: hsl(26, 100%, 55%); // Orange
+  --color-primary-light: hsl(25, 200%, 94%); // Pale orange
+
+  --color-gray-blue-darkest: hsl(220, 13%, 13%);
+  --color-gray-blue-dark: hsl(219, 9%, 45%);
+  --color-gray-blue: hsl(220, 14%, 75%);
+  --color-gray-blue-light: hsl(223, 64%, 98%);
+  --color-white: hsl(0, 0, 100%);
+  --color-black: hsl(0, 0, 0);
+
+  --text-black: var(--color-black);
+  --text-orange: var(--color-primary);
+  --text-gray: var(--color-gray-blue-dark);
+
+  --background-color-white: var(--color-white);
+  --background-color-orange: var(--color-primary);
+  --background-color-gray: var(--color-gray-blue);
+
+  --color-focus-indicator: #aa2b2b;
+
+  // FONT VARIABLES
+  --font-primary: "Kumbh Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box; // all elements will inherit
+  font-size: 62.5%; // 1 rem: 10px | 10px/16px = 62.5%
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  --color-text-primary: var(--text-black);
+  --color-bg-primary: var(--background-color-white);
+  --color-element-primary: var(--background-color-orange);
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background 0.25s ease-in-out;
+}
+
+#__next {
+}
