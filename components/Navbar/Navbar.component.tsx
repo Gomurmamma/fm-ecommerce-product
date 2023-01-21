@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import style from "./Navbar.module.scss";
 import Link from "next/link";
 import MenuIcon from "../../public/icon-menu.svg";
+import CartIcon from "../../public/icon-cart.svg";
 
 type Props = {
   pageTitle: string;
   menuLinksData: { title: string; path: string }[];
-  iconPath?: string;
 };
 
-function Navbar({ pageTitle, menuLinksData, iconPath }: Props): JSX.Element {
+function Navbar({ pageTitle, menuLinksData }: Props): JSX.Element {
   const [sideMenu, setSideMenu] = useState(false);
 
   const showSideMenu = () => setSideMenu(!sideMenu);
@@ -28,7 +28,9 @@ function Navbar({ pageTitle, menuLinksData, iconPath }: Props): JSX.Element {
               <h1>{pageTitle}</h1>
             </Link>
           </li>
-          <li>cart</li>
+          <li>
+            <CartIcon />
+          </li>
           <li>profile</li>
         </ul>
       </nav>
