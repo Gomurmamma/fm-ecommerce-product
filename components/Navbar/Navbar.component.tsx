@@ -1,14 +1,18 @@
 import style from "./Navbar.module.scss";
 import Link from "next/link";
 
-const Navbar = () => {
+type Props = {
+  pageTitle: string;
+};
+
+function Navbar({ pageTitle }: Props): JSX.Element {
   return (
-    <nav className={style.Navbar}>
-      <ul>
+    <nav>
+      <ul className={style.NavBar}>
         <li>Menu</li>
         <li>
           <Link href="/">
-            <h1>sneakers</h1>
+            <h1>{pageTitle}</h1>
           </Link>
         </li>
         <li>cart</li>
@@ -16,6 +20,6 @@ const Navbar = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default Navbar;
