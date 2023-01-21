@@ -3,13 +3,15 @@ import style from "./Navbar.module.scss";
 import Link from "next/link";
 import MenuIcon from "../../public/icon-menu.svg";
 import CartIcon from "../../public/icon-cart.svg";
+import LogoIcon from "../../public/logo.svg";
+import Image from "next/image";
 
 type Props = {
-  pageTitle: string;
-  menuLinksData: { title: string; path: string }[];
+  menuLinksData: { title: string; linkPath: string }[];
+  userProfile: { filePath: string; altText: string };
 };
 
-function Navbar({ pageTitle, menuLinksData }: Props): JSX.Element {
+function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
   const [sideMenu, setSideMenu] = useState(false);
 
   const showSideMenu = () => setSideMenu(!sideMenu);
@@ -19,19 +21,36 @@ function Navbar({ pageTitle, menuLinksData }: Props): JSX.Element {
       <nav>
         <ul className={style.NavBar}>
           <li>
-            <button onClick={showSideMenu}>
-              <MenuIcon />
-            </button>
+            <ul className={style.NavBar__menuGroup}>
+              <li>
+                <button onClick={showSideMenu}>
+                  <MenuIcon />
+                </button>
+              </li>
+              <li>
+                <Link href="/">
+                  <LogoIcon />
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
-            <Link href="/">
-              <h1>{pageTitle}</h1>
-            </Link>
+            <ul className={style.NavBar__menuGroup}>
+              <li className={style.NavBar__rightItem}>
+                <CartIcon />
+              </li>
+              <li className={style.NavBar__rightItem}>
+                <figure className={style.NavBar__profileIconFrame}>
+                  <Image
+                    src={userProfile.filePath}
+                    alt={userProfile.altText}
+                    className={style.NavBar__profileIconFrame__Image}
+                    fill={true}
+                  ></Image>
+                </figure>
+              </li>
+            </ul>
           </li>
-          <li>
-            <CartIcon />
-          </li>
-          <li>profile</li>
         </ul>
       </nav>
       {sideMenu ? (
@@ -43,7 +62,7 @@ function Navbar({ pageTitle, menuLinksData }: Props): JSX.Element {
             {menuLinksData?.map((destination, index) => {
               return (
                 <li key={index}>
-                  <Link href={destination.path}>{destination.title}</Link>
+                  <Link href={destination.linkPath}>{destination.title}</Link>
                 </li>
               );
             })}

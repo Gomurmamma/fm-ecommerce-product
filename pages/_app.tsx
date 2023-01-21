@@ -14,7 +14,13 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="viewport" content="width=device-width" initial-scale="1" />
         <meta httpEquiv="X-UA-Compatible" content="IE-Edge" />
       </Head>
-      <Navbar pageTitle="sneakers" menuLinksData={menuLinksData}></Navbar>
+      <Navbar
+        menuLinksData={menuLinksData}
+        userProfile={{
+          filePath: "/image-avatar.png",
+          altText: "Profile Image of User",
+        }}
+      ></Navbar>
       <Component {...pageProps} />
     </>
   );

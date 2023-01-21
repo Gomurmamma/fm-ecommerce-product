@@ -1,9 +1,9 @@
-const menuLinksData: { title: string; path: string }[] = [
-  { title: "Collections", path: "/" },
-  { title: "Men", path: "/" },
-  { title: "Women", path: "/" },
-  { title: "About", path: "/" },
-  { title: "Contact", path: "/" },
+const menuLinksData: { title: string; linkPath: string }[] = [
+  { title: "Collections", linkPath: "/" },
+  { title: "Men", linkPath: "/" },
+  { title: "Women", linkPath: "/" },
+  { title: "About", linkPath: "/" },
+  { title: "Contact", linkPath: "/" },
 ];
 
 export default menuLinksData;
