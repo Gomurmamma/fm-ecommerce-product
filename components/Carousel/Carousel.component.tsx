@@ -44,8 +44,9 @@ function Carousel({ children }: CarouselProps) {
   const updateIndex = (newIndex: number): void => {
     if (newIndex < 0) {
       newIndex = 0;
-    } else if (newIndex >= React.Children.count(children)) {
-      newIndex = React.Children.count(children) - 1;
+    } else if (newIndex > 3) {
+      // there are only 3 images
+      newIndex = 3;
     }
 
     setActiveIndex(newIndex);
@@ -68,16 +69,15 @@ function Carousel({ children }: CarouselProps) {
           }}
           className={style.Carousel__buttonContainer__button}
         >
-          next
+          Prev
         </button>
         <button
           onClick={() => {
             updateIndex(activeIndex + 1);
-            console.log("clicked! 2");
           }}
           className={style.Carousel__buttonContainer__button}
         >
-          prev
+          Next
         </button>
       </div>
     </div>

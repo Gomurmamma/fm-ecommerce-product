@@ -1,15 +1,14 @@
 .Carousel {
   overflow: hidden;
-  height: 25rem;
+  height: 30rem;
 
   &__inner {
     white-space: nowrap;
     transition: all 0.2s ease-in-out;
-    background-color: blue;
   }
 
   &__buttonContainer {
-    border: 1px solid red;
+    margin-top: 33%;
     position: relative;
     z-index: 1;
     display: flex;
@@ -23,7 +22,6 @@
 }
 
 .CarouselItem {
-  outline: 1px solid blue;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -35,7 +33,7 @@
 
   &__Image {
     margin-top: -2rem;
-    min-height: 30rem;
+    min-height: 35rem;
     object-fit: fill;
   }
 }
