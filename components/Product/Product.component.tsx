@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import style from "./Product.module.scss";
-import Image from "next/image";
 import Carousel from "../Carousel/Carousel.component";
 import { CarouselItem } from "../Carousel/Carousel.component";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/cart.slice";
+import CartIcon from "../../public/icon-cart.svg";
+import MinusIcon from "../../public/icon-minus.svg";
+import PlusIcon from "../../public/icon-plus.svg";
+
+interface RootState {
+  isOn: boolean;
+  cart: any;
+}
 
 type Props = {
   productData: {
@@ -20,6 +29,14 @@ type Props = {
 };
 
 function Product({ productData, imageData, children }: Props): JSX.Element {
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state: RootState) => state.cart);
+
+  const getItemsCount = () => {
+    return cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
+  };
+
   return (
     <figure className={style.Product}>
       <Carousel>
@@ -43,6 +60,23 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
           <li>{productData.salesData.originalPrice.toString()}</li>
         </ul>
       </figcaption>
+      <ul>
+        <li>
+          <button>
+            <MinusIcon />
+          </button>
+          <span>{getItemsCount()}</span>
+          <button>
+            <PlusIcon />
+          </button>
+        </li>
+        <li>
+          <button onClick={() => dispatch(addToCart(productData))}>
+            <CartIcon />
+            Add to cart
+          </button>
+        </li>
+      </ul>
     </figure>
   );
 }
