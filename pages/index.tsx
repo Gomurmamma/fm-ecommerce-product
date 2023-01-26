@@ -5,7 +5,7 @@ import ShoeData from "../data/ShoeData/ShoeData";
 function HomePage(): JSX.Element {
   return (
     <section>
-      <Product imageData={ShoeData} />
+      <Product imageData={ShoeData.image} productData={ShoeData} />
     </section>
   );
 }

@@ -5,11 +5,21 @@ import Carousel from "../Carousel/Carousel.component";
 import { CarouselItem } from "../Carousel/Carousel.component";
 
 type Props = {
+  productData: {
+    companyName: string;
+    productName: string;
+    productDescription: string;
+    salesData: {
+      currentPrice: Number;
+      percentDiscount: Number;
+      originalPrice: Number;
+    };
+  };
   imageData: { filePath: string; altText: string }[];
   children?: React.ReactNode;
 };
 
-function Product({ imageData, children }: Props): JSX.Element {
+function Product({ productData, imageData, children }: Props): JSX.Element {
   return (
     <figure className={style.Product}>
       <Carousel>
@@ -23,7 +33,16 @@ function Product({ imageData, children }: Props): JSX.Element {
           ))}
         </>
       </Carousel>
-      <figcaption>Shoes</figcaption>
+      <figcaption>
+        <h3>{productData.companyName}</h3>
+        <h2>{productData.productName}</h2>
+        <p>{productData.productDescription}</p>
+        <ul>
+          <li>{productData.salesData.currentPrice.toString()}</li>
+          <li>{productData.salesData.percentDiscount.toString()}</li>
+          <li>{productData.salesData.originalPrice.toString()}</li>
+        </ul>
+      </figcaption>
     </figure>
   );
 }
