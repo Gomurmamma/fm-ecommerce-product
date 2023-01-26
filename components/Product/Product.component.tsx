@@ -23,9 +23,9 @@ type Props = {
     productName: string;
     productDescription: string;
     salesData: {
-      currentPrice: Number;
-      percentDiscount: Number;
-      originalPrice: Number;
+      currentPrice: number;
+      percentDiscount: number;
+      originalPrice: number;
     };
   };
   imageData: { filePath: string; altText: string }[];
@@ -33,6 +33,18 @@ type Props = {
 };
 
 function Product({ productData, imageData, children }: Props): JSX.Element {
+  const [itemQuantity, setItemQuantity] = useState(0);
+
+  const decrementItemQuantity = (): void => {
+    if (itemQuantity > 0) {
+      setItemQuantity(itemQuantity - 1);
+    }
+  };
+
+  const incrementItemQuantity = (): void => {
+    setItemQuantity(itemQuantity + 1);
+  };
+
   const dispatch = useDispatch();
 
   const cart = useSelector((state: RootState) => state.cart);
@@ -66,16 +78,18 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
       </figcaption>
       <ul>
         <li>
-          <button onClick={() => dispatch(decrementQuantity(productData))}>
+          <button onClick={() => decrementItemQuantity()}>
             <MinusIcon />
           </button>
-          <span>{getItemsCount()}</span>
-          <button onClick={() => dispatch(incrementQuantity(productData))}>
+          <span>{itemQuantity}</span>
+          <button onClick={() => incrementItemQuantity()}>
             <PlusIcon />
           </button>
         </li>
         <li>
-          <button onClick={() => dispatch(addToCart(productData))}>
+          <button
+            onClick={() => dispatch(addToCart({ productData, itemQuantity }))}
+          >
             <CartIcon />
             Add to cart
           </button>

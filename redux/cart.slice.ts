@@ -6,13 +6,16 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const itemExists = state.find(
-        (item) => (item.productName = action.payload.productName)
+        (item) => (item.productName = action.payload.productData.productName)
       );
 
       if (itemExists) {
-        itemExists.quantity++;
+        itemExists.quantity += action.payload.itemQuantity;
       } else {
-        state.push({ ...action.payload, quantity: 1 });
+        state.push({
+          ...action.payload,
+          quantity: action.payload.itemQuantity,
+        });
       }
     },
     incrementQuantity: (state, action) => {
