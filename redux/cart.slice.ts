@@ -19,12 +19,18 @@ const cartSlice = createSlice({
       const item = state.find(
         (item) => (item.productName = action.payload.productName)
       );
-      item.quantity++;
+      if (item) {
+        item.quantity++;
+      } else {
+        state.push({ ...action.payload, quantity: 1 });
+      }
     },
     decrementQuantity: (state, action) => {
       const item = state.find(
         (item) => (item.productName = action.payload.productName)
       );
+
+      if (!item) return;
       if (item.quantity === 1) {
         const itemIndex = state.findIndex(
           (item) => item.productName === action.payload.productName

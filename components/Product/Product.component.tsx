@@ -3,7 +3,11 @@ import style from "./Product.module.scss";
 import Carousel from "../Carousel/Carousel.component";
 import { CarouselItem } from "../Carousel/Carousel.component";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/cart.slice";
+import {
+  addToCart,
+  decrementQuantity,
+  incrementQuantity,
+} from "../../redux/cart.slice";
 import CartIcon from "../../public/icon-cart.svg";
 import MinusIcon from "../../public/icon-minus.svg";
 import PlusIcon from "../../public/icon-plus.svg";
@@ -62,11 +66,11 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
       </figcaption>
       <ul>
         <li>
-          <button>
+          <button onClick={() => dispatch(decrementQuantity(productData))}>
             <MinusIcon />
           </button>
           <span>{getItemsCount()}</span>
-          <button>
+          <button onClick={() => dispatch(incrementQuantity(productData))}>
             <PlusIcon />
           </button>
         </li>
