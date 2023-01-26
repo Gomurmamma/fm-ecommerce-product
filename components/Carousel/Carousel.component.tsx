@@ -62,24 +62,28 @@ function Carousel({ children }: CarouselProps) {
           return React.cloneElement(child, { width: "100%" });
         })}
       </ul>
-      <div className={style.Carousel__buttonContainer}>
-        <button
-          onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}
-          className={style.Carousel__buttonContainer__button}
-        >
-          Prev
-        </button>
-        <button
-          onClick={() => {
-            updateIndex(activeIndex + 1);
-          }}
-          className={style.Carousel__buttonContainer__button}
-        >
-          Next
-        </button>
-      </div>
+      <ul className={style.Carousel__buttonContainer}>
+        <li>
+          <button
+            onClick={() => {
+              updateIndex(activeIndex - 1);
+            }}
+            className={style.Carousel__buttonContainer__button}
+          >
+            Prev
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              updateIndex(activeIndex + 1);
+            }}
+            className={style.Carousel__buttonContainer__button}
+          >
+            Next
+          </button>
+        </li>
+      </ul>
     </section>
   );
 }
