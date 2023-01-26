@@ -53,7 +53,7 @@ function Carousel({ children }: CarouselProps) {
   };
 
   return (
-    <div className={style.Carousel}>
+    <section className={style.Carousel}>
       <ul
         className={style.Carousel__inner}
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -80,7 +80,7 @@ function Carousel({ children }: CarouselProps) {
           Next
         </button>
       </div>
-    </div>
+    </section>
   );
 }
 
