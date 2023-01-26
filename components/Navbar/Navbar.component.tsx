@@ -5,6 +5,12 @@ import MenuIcon from "../../public/icon-menu.svg";
 import CartIcon from "../../public/icon-cart.svg";
 import LogoIcon from "../../public/logo.svg";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+
+interface RootState {
+  isOn: boolean;
+  cart: any;
+}
 
 type Props = {
   menuLinksData: { title: string; linkPath: string }[];
@@ -15,6 +21,14 @@ function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
   const [sideMenu, setSideMenu] = useState(false);
 
   const showSideMenu = () => setSideMenu(!sideMenu);
+
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state: RootState) => state.cart);
+
+  const getItemsCount = () => {
+    return cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
+  };
 
   return (
     <section>
@@ -38,6 +52,7 @@ function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
             <ul className={style.NavBar__menuGroup}>
               <li className={style.NavBar__rightItem}>
                 <CartIcon />
+                <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
               </li>
               <li className={style.NavBar__rightItem}>
                 <figure className={style.NavBar__profileIconFrame}>
