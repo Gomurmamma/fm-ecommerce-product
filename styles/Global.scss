@@ -10,7 +10,7 @@
   --color-gray-blue: hsl(220, 14%, 75%);
   --color-gray-blue-light: hsl(223, 64%, 98%);
   --color-white: hsl(0, 0, 100%);
-  --color-black: hsl(0, 0, 0);
+  --color-black: hsl(0, 0, 0); // 75% opacity for lightbox bg
 
   --text-black: var(--color-black);
   --text-orange: var(--color-primary);

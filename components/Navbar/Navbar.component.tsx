@@ -53,24 +53,22 @@ function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
           </li>
         </ul>
       </nav>
-      {sideMenu ? (
-        <nav>
-          <ul>
-            <li>
-              <button onClick={showSideMenu}>X</button>
-            </li>
-            {menuLinksData?.map((destination, index) => {
-              return (
-                <li key={index}>
-                  <Link href={destination.linkPath}>{destination.title}</Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      ) : (
-        <></>
-      )}
+      <nav
+        className={sideMenu === false ? style.SideMenu : style.SideMenu__active}
+      >
+        <ul>
+          <li>
+            <button onClick={showSideMenu}>X</button>
+          </li>
+          {menuLinksData?.map((destination, index) => {
+            return (
+              <li key={index}>
+                <Link href={destination.linkPath}>{destination.title}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </section>
   );
 }

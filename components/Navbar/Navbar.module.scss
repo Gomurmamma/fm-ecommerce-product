@@ -21,3 +21,23 @@
     }
   }
 }
+
+.SideMenu {
+  transition: all 0.3s ease-in-out;
+  outline: 2px solid green;
+  background-color: var(--color-gray-blue-light);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -10rem;
+
+  &__active {
+    transition: all 0.3s ease-in-out;
+    outline: 2px solid green;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0rem;
+    background-color: var(--color-gray-blue-light);
+  }
+}
