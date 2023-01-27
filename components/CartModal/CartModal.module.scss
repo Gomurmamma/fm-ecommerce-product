@@ -1,0 +1,28 @@
+.CartModal {
+  /* Container */
+  position: fixed;
+  z-index: 3;
+  border: 2px solid yellow;
+  margin-top: 2%;
+  margin-left: 4.5%;
+  border-radius: 0.5rem;
+
+  background-color: var(--color-gray-blue-light);
+  width: 90%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__content {
+    &__imageFrame {
+      position: relative;
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+}

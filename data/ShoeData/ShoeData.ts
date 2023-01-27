@@ -6,6 +6,19 @@ export const ShoeImages: { altText: string; filePath: string }[] = [
     altText: "Side profile of shoe on a stone",
     filePath: "/image-product-4.jpg",
   },
+  { altText: "Shoe and sole", filePath: "/image-product-1-thumbnail.jpg" },
+  {
+    altText: "Editorial shoe scene",
+    filePath: "/image-product-2-thumbnail.jpg",
+  },
+  {
+    altText: "Individual shoe on stones",
+    filePath: "/image-product-3-thumbnail.jpg",
+  },
+  {
+    altText: "Side profile of shoe on a stone",
+    filePath: "/image-product-4-thumbnail.jpg",
+  },
 ];
 
 const ShoeData: {

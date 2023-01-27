@@ -5,6 +5,7 @@ import { store } from "../redux/store";
 import Head from "next/head";
 import Navbar from "../components/Navbar/Navbar.component";
 import menuLinksData from "../components/Navbar/MenuLinksData";
+import CartModal from "../components/CartModal/CartModal.component";
 
 import "../styles/Global.scss";
 
@@ -24,6 +25,7 @@ const App = ({ Component, pageProps }: AppProps) => {
             altText: "Profile Image of User",
           }}
         ></Navbar>
+        <CartModal />
         <Component {...pageProps} />
       </Provider>
     </>

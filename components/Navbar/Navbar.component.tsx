@@ -22,8 +22,6 @@ function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
 
   const showSideMenu = () => setSideMenu(!sideMenu);
 
-  const dispatch = useDispatch();
-
   const cart = useSelector((state: RootState) => state.cart);
 
   const getItemsCount = () => {
@@ -51,8 +49,10 @@ function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
           <li>
             <ul className={style.NavBar__menuGroup}>
               <li className={style.NavBar__rightItem}>
-                <CartIcon />
-                <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
+                <a href="#menuModal">
+                  <CartIcon />
+                  <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
+                </a>
               </li>
               <li className={style.NavBar__rightItem}>
                 <figure className={style.NavBar__profileIconFrame}>
