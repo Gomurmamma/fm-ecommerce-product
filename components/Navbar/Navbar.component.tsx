@@ -17,6 +17,8 @@ type Props = {
   userProfile: { filePath: string; altText: string };
   setCartModal: (cartModal: boolean) => void;
   cartModal: boolean;
+  setSideMenu: (sideMenu: boolean) => void;
+  sideMenu: boolean;
 };
 
 function Navbar({
@@ -24,9 +26,9 @@ function Navbar({
   userProfile,
   setCartModal,
   cartModal,
+  sideMenu,
+  setSideMenu,
 }: Props): JSX.Element {
-  const [sideMenu, setSideMenu] = useState(false);
-
   const showSideMenu = (): void => setSideMenu(!sideMenu);
 
   const showCartModal = (): void => {
@@ -82,7 +84,7 @@ function Navbar({
       <nav
         className={sideMenu === false ? style.SideMenu : style.SideMenu__active}
       >
-        <ul>
+        <ul className={style.SideMenu__content}>
           <li>
             <button onClick={showSideMenu}>X</button>
           </li>

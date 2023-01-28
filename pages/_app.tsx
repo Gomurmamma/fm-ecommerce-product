@@ -11,6 +11,7 @@ import "../styles/Global.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [cartModal, setCartModal] = useState(false);
+  const [sideMenu, setSideMenu] = useState(false);
 
   return (
     <>
@@ -28,8 +29,10 @@ const App = ({ Component, pageProps }: AppProps) => {
           }}
           setCartModal={setCartModal}
           cartModal={cartModal}
+          sideMenu={sideMenu}
+          setSideMenu={setSideMenu}
         ></Navbar>
-        <CartModal cartModal={cartModal} />
+        {cartModal ? <CartModal cartModal={cartModal} /> : <></>}
         <Component {...pageProps} />
       </Provider>
     </>

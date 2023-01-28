@@ -42,7 +42,6 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff"></meta>
         </Head>
         <body>
-          {/*<script dangerouslySetInnerHTML={{ __html: setInitialTheme }} /> */}
           <Main />
           <NextScript />
         </body>
