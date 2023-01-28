@@ -49,7 +49,7 @@ function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
           <li>
             <ul className={style.NavBar__menuGroup}>
               <li className={style.NavBar__rightItem}>
-                <a href="#menuModal">
+                <a href="#cart">
                   <CartIcon />
                   <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
                 </a>

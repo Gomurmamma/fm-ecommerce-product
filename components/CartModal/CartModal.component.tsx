@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import Style from "./CartModal.module.scss";
 import Image from "next/image";
 import DeleteIcon from "../../public/icon-delete.svg";
 import productData from "../../data/ShoeData/ShoeData";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../redux/cart.slice";
 
 interface RootState {
   isOn: boolean;
@@ -10,6 +12,8 @@ interface RootState {
 }
 
 function CartModal(): JSX.Element {
+  const dispatch = useDispatch();
+
   const cart = useSelector((state: RootState) => state.cart);
 
   const getItemCount = () => {
@@ -32,7 +36,7 @@ function CartModal(): JSX.Element {
   };
 
   return (
-    <section className={Style.CartModal} id="menuModal">
+    <section className={Style.CartModal} id="cart">
       <div className={Style.CartModal__content}>
         <h4>Cart</h4>
         <hr></hr>
@@ -59,7 +63,13 @@ function CartModal(): JSX.Element {
                   </figcaption>
                 </li>
                 <li>
-                  <DeleteIcon />
+                  <button
+                    onClick={() =>
+                      dispatch(removeFromCart(getItemName().replace(/\d/g, "")))
+                    }
+                  >
+                    <DeleteIcon />
+                  </button>
                 </li>
               </ul>
             </figure>
