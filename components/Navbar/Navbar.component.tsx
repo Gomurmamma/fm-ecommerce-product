@@ -15,12 +15,23 @@ interface RootState {
 type Props = {
   menuLinksData: { title: string; linkPath: string }[];
   userProfile: { filePath: string; altText: string };
+  setCartModal: (cartModal: boolean) => void;
+  cartModal: boolean;
 };
 
-function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
+function Navbar({
+  menuLinksData,
+  userProfile,
+  setCartModal,
+  cartModal,
+}: Props): JSX.Element {
   const [sideMenu, setSideMenu] = useState(false);
 
-  const showSideMenu = () => setSideMenu(!sideMenu);
+  const showSideMenu = (): void => setSideMenu(!sideMenu);
+
+  const showCartModal = (): void => {
+    setCartModal(!cartModal);
+  };
 
   const cart = useSelector((state: RootState) => state.cart);
 
@@ -49,10 +60,10 @@ function Navbar({ menuLinksData, userProfile }: Props): JSX.Element {
           <li>
             <ul className={style.NavBar__menuGroup}>
               <li className={style.NavBar__rightItem}>
-                <a href="#cart">
+                <button onClick={showCartModal}>
                   <CartIcon />
                   <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
-                </a>
+                </button>
               </li>
               <li className={style.NavBar__rightItem}>
                 <figure className={style.NavBar__profileIconFrame}>

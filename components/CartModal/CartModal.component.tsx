@@ -11,7 +11,11 @@ interface RootState {
   cart: any;
 }
 
-function CartModal(): JSX.Element {
+type Props = {
+  cartModal: boolean;
+};
+
+function CartModal({ cartModal }: Props): JSX.Element {
   const dispatch = useDispatch();
 
   const cart = useSelector((state: RootState) => state.cart);
@@ -36,7 +40,10 @@ function CartModal(): JSX.Element {
   };
 
   return (
-    <section className={Style.CartModal} id="cart">
+    <section
+      className={cartModal ? Style.CartModal__visible : Style.CartModal}
+      id="cart"
+    >
       <div className={Style.CartModal__content}>
         <h4>Cart</h4>
         <hr></hr>
@@ -64,9 +71,11 @@ function CartModal(): JSX.Element {
                 </li>
                 <li>
                   <button
-                    onClick={() =>
-                      dispatch(removeFromCart(getItemName().replace(/\d/g, "")))
-                    }
+                    onClick={() => {
+                      dispatch(
+                        removeFromCart(getItemName().replace(/\d/g, ""))
+                      );
+                    }}
                   >
                     <DeleteIcon />
                   </button>

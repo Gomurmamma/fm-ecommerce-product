@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
@@ -10,6 +10,8 @@ import CartModal from "../components/CartModal/CartModal.component";
 import "../styles/Global.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const [cartModal, setCartModal] = useState(false);
+
   return (
     <>
       <Head>
@@ -24,8 +26,10 @@ const App = ({ Component, pageProps }: AppProps) => {
             filePath: "/image-avatar.png",
             altText: "Profile Image of User",
           }}
+          setCartModal={setCartModal}
+          cartModal={cartModal}
         ></Navbar>
-        <CartModal />
+        <CartModal cartModal={cartModal} />
         <Component {...pageProps} />
       </Provider>
     </>
