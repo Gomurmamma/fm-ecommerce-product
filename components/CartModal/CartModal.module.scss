@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .CartModal {
   /* Container */
   position: fixed;
@@ -27,6 +29,11 @@
     width: 90%;
     opacity: 1;
     pointer-events: all;
+
+    @include desktop {
+      width: 20%;
+      margin-left: 70%;
+    }
   }
 
   &__content {
