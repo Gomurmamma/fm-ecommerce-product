@@ -66,35 +66,38 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
           ))}
         </>
       </Carousel>
-      <figcaption>
+      <figcaption className={style.Product__details}>
         <h3>{productData.companyName}</h3>
         <h2>{productData.productName}</h2>
         <p>{productData.productDescription}</p>
         <ul>
-          <li>{productData.salesData.currentPrice.toString()}</li>
-          <li>{productData.salesData.percentDiscount.toString()}</li>
+          <li>
+            {productData.salesData.currentPrice.toString()}{" "}
+            <span> {productData.salesData.percentDiscount.toString()}</span>
+          </li>
+
           <li>{productData.salesData.originalPrice.toString()}</li>
         </ul>
+        <ul>
+          <li>
+            <button onClick={() => decrementItemQuantity()}>
+              <MinusIcon />
+            </button>
+            <span>{itemQuantity}</span>
+            <button onClick={() => incrementItemQuantity()}>
+              <PlusIcon />
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => dispatch(addToCart({ productData, itemQuantity }))}
+            >
+              <CartIcon />
+              Add to cart
+            </button>
+          </li>
+        </ul>
       </figcaption>
-      <ul>
-        <li>
-          <button onClick={() => decrementItemQuantity()}>
-            <MinusIcon />
-          </button>
-          <span>{itemQuantity}</span>
-          <button onClick={() => incrementItemQuantity()}>
-            <PlusIcon />
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={() => dispatch(addToCart({ productData, itemQuantity }))}
-          >
-            <CartIcon />
-            Add to cart
-          </button>
-        </li>
-      </ul>
     </figure>
   );
 }
