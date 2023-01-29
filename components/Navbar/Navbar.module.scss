@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .NavBar {
   display: flex;
   flex-direction: row;
@@ -19,6 +21,25 @@
 
     &__Image {
     }
+  }
+
+  &__sideMenuButton {
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__horizontalMenu {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  &__linksContainer {
+    display: flex;
+    flex-direction: row;
   }
 }
 

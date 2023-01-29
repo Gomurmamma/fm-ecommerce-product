@@ -47,7 +47,7 @@ function Navbar({
         <ul className={style.NavBar}>
           <li>
             <ul className={style.NavBar__menuGroup}>
-              <li>
+              <li className={style.NavBar__sideMenuButton}>
                 <button onClick={showSideMenu}>
                   <MenuIcon />
                 </button>
@@ -56,6 +56,19 @@ function Navbar({
                 <Link href="/">
                   <LogoIcon />
                 </Link>
+              </li>
+              <li className={style.NavBar__horizontalMenu}>
+                <ul role="list" className={style.NavBar__linksContainer}>
+                  {menuLinksData?.map((destination, index) => {
+                    return (
+                      <li key={index}>
+                        <Link href={destination.linkPath}>
+                          {destination.title}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </li>
             </ul>
           </li>
