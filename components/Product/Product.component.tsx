@@ -29,7 +29,11 @@ type Props = {
       originalPrice: number;
     };
   };
-  imageData: { filePath: string; altText: string }[];
+  imageData: {
+    filePath: string;
+    altText: string;
+    thumbnails: { filePath: string; altText: string }[];
+  }[];
   children?: React.ReactNode;
 };
 
