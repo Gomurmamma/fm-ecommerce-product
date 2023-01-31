@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./Product.module.scss";
 import Carousel from "../Carousel/Carousel.component";
+import Gallery from "../Gallery/Gallery.component";
 import { CarouselItem } from "../Carousel/Carousel.component";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -66,9 +67,10 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
           ))}
         </>
       </Carousel>
+      <Gallery imageData={imageData} />
       <figcaption className={style.Product__details}>
-        <h3>{productData.companyName}</h3>
-        <h2>{productData.productName}</h2>
+        <h2>{productData.companyName}</h2>
+        <h1>{productData.productName}</h1>
         <p>{productData.productDescription}</p>
         <ul>
           <li>

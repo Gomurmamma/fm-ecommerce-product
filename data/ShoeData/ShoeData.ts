@@ -1,4 +1,10 @@
-export const ShoeImages: { altText: string; filePath: string }[] = [
+export const ShoeImages:
+  | {
+      altText: string;
+      filePath: string;
+      thumbnails: { altText: string; filePath: string }[];
+    }[]
+  | any[] = [
   { altText: "Shoe and sole", filePath: "/image-product-1.jpg" },
   { altText: "Editorial shoe scene", filePath: "/image-product-2.jpg" },
   { altText: "Individual shoe on stones", filePath: "/image-product-3.jpg" },
@@ -6,18 +12,22 @@ export const ShoeImages: { altText: string; filePath: string }[] = [
     altText: "Side profile of shoe on a stone",
     filePath: "/image-product-4.jpg",
   },
-  { altText: "Shoe and sole", filePath: "/image-product-1-thumbnail.jpg" },
   {
-    altText: "Editorial shoe scene",
-    filePath: "/image-product-2-thumbnail.jpg",
-  },
-  {
-    altText: "Individual shoe on stones",
-    filePath: "/image-product-3-thumbnail.jpg",
-  },
-  {
-    altText: "Side profile of shoe on a stone",
-    filePath: "/image-product-4-thumbnail.jpg",
+    thumbnails: [
+      { altText: "Shoe and sole", filePath: "/image-product-1-thumbnail.jpg" },
+      {
+        altText: "Editorial shoe scene",
+        filePath: "/image-product-2-thumbnail.jpg",
+      },
+      {
+        altText: "Individual shoe on stones",
+        filePath: "/image-product-3-thumbnail.jpg",
+      },
+      {
+        altText: "Side profile of shoe on a stone",
+        filePath: "/image-product-4-thumbnail.jpg",
+      },
+    ],
   },
 ];
 
@@ -30,7 +40,11 @@ const ShoeData: {
     percentDiscount: number;
     originalPrice: number;
   };
-  image: { altText: string; filePath: string }[];
+  image: {
+    thumbnails: any;
+    altText: string;
+    filePath: string;
+  }[];
 } = {
   companyName: "Sneaker Company",
   productName: "Fall Limited Edition Sneakers",
