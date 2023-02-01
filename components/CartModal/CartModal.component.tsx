@@ -53,8 +53,8 @@ function CartModal({ cartModal }: Props): JSX.Element {
               <ul>
                 <li className={Style.CartModal__content__imageFrame}>
                   <Image
-                    src={productData.image[4].thumbnails[0].filePath}
-                    alt={productData.image[4].thumbnails[0].altText}
+                    src={productData.image.thumbnails[0].filePath}
+                    alt={productData.image.thumbnails[0].altText}
                     fill={true}
                   />
                 </li>

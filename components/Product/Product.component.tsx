@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import style from "./Product.module.scss";
 import Carousel from "../Carousel/Carousel.component";
 import Gallery from "../Gallery/Gallery.component";
-import { CarouselItem } from "../Carousel/Carousel.component";
+import {
+  CarouselItem,
+  CarouselThumbnail,
+} from "../Carousel/Carousel.component";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
@@ -30,10 +33,9 @@ type Props = {
     };
   };
   imageData: {
-    filePath: string;
-    altText: string;
+    fullImages: { filePath: string; altText: string }[];
     thumbnails: { filePath: string; altText: string }[];
-  }[];
+  };
   children?: React.ReactNode;
 };
 
@@ -60,9 +62,9 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
 
   return (
     <figure className={style.Product}>
-      <Carousel>
+      <Carousel thumbnails={imageData.thumbnails}>
         <>
-          {imageData.map((image, index) => (
+          {imageData.fullImages.map((image, index) => (
             <CarouselItem
               width="100%"
               imageData={image}
@@ -71,7 +73,7 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
           ))}
         </>
       </Carousel>
-      <Gallery imageData={imageData} />
+
       <figcaption className={style.Product__details}>
         <h2>{productData.companyName}</h2>
         <h1>{productData.productName}</h1>

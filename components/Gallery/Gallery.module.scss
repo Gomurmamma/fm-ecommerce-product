@@ -7,7 +7,7 @@
   width: 10rem;
 
   @include desktop {
-    display: flex;
+    display: none;
     outline: 1px solid yellow;
 
     &__imageFrame {

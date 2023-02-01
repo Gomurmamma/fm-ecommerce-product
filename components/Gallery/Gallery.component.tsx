@@ -1,53 +1,118 @@
-import style from "./Gallery.module.scss";
+import React, { useState } from "react";
+import style from "./Carousel.module.scss";
 import Image from "next/image";
 
-type Props = {
+type CarouselItemProps = {
+  children?: JSX.Element | JSX.Element[];
+  key?: Number;
+  width?: string;
   imageData: {
     filePath: string;
     altText: string;
-    thumbnails: { filePath: string; altText: string }[];
-  }[];
+  };
 };
 
-function Gallery({ imageData }: Props): JSX.Element {
+type CarouselProps = {
+  children?: JSX.Element;
+};
+
+type CarouselThumbnailProps = {
+  children?: JSX.Element;
+  imageData: {
+    filePath: string;
+    altText: string;
+    thumbnails?: { filePath: string; altText: string }[];
+  };
+};
+
+export function CarouselThumbnail({
+  children,
+  imageData,
+}: CarouselThumbnailProps): JSX.Element {
   return (
-    <section className={style.Gallery}>
-      <ul>
-        {imageData?.map((image, index) => {
-          return (
-            <li key={index}>
-              <button className={style.Gallery__imageFrame}>
-                <Image
-                  src={image.filePath}
-                  alt={image.altText}
-                  width={20}
-                  height={20}
-                  className={style.Gallery__imageFrame__image}
-                ></Image>
-              </button>
-            </li>
-          );
+    <>
+      <li className={style.CarouselThumbnail}>
+        <Image
+          src={imageData.filePath}
+          alt={imageData.altText}
+          className={style.CarouselItem__Image}
+          fill={true}
+        />
+      </li>
+    </>
+  );
+}
+
+export function GalleryItem({
+  children,
+  width,
+  imageData,
+}: CarouselItemProps): JSX.Element {
+  return (
+    <>
+      {
+        <li className={style.CarouselItem} style={{ width: width }}>
+          <Image
+            src={imageData.filePath}
+            alt={imageData.altText}
+            className={style.CarouselItem__Image}
+            fill={true}
+          />
+        </li>
+      }
+      {children}
+    </>
+  );
+}
+
+function Carousel({ children }: CarouselProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const updateIndex = (newIndex: number): void => {
+    if (newIndex < 0) {
+      newIndex = 0;
+    } else if (newIndex > 3) {
+      // there are only 3 images
+      newIndex = 3;
+    }
+
+    setActiveIndex(newIndex);
+  };
+
+  return (
+    <section className={style.Carousel}>
+      <ul
+        className={style.Carousel__inner}
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
+        {React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, { width: "100%" });
         })}
       </ul>
-      <ul className={style.Gallery__thumbnailsContainer}>
-        {imageData[4].thumbnails.map((image, index) => {
-          return (
-            <li key={index}>
-              <button className={style.Gallery__imageFrame__thumbnail}>
-                <Image
-                  src={image.filePath}
-                  alt={image.altText}
-                  className={style.Gallery__imageFrame__image__thumbnail}
-                  width={20}
-                  height={20}
-                ></Image>
-              </button>
-            </li>
-          );
-        })}
+      <ul className={style.Carousel__buttonContainer}>
+        <li>
+          <button
+            onClick={() => {
+              updateIndex(activeIndex - 1);
+            }}
+            className={style.Carousel__buttonContainer__button}
+          >
+            Prev
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
+              updateIndex(activeIndex + 1);
+            }}
+            className={style.Carousel__buttonContainer__button}
+          >
+            Next
+          </button>
+        </li>
       </ul>
     </section>
   );
 }
 
-export default Gallery;
+export default Carousel;

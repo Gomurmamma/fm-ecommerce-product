@@ -1,35 +1,32 @@
-export const ShoeImages:
-  | {
-      altText: string;
-      filePath: string;
-      thumbnails: { altText: string; filePath: string }[];
-    }[]
-  | any[] = [
-  { altText: "Shoe and sole", filePath: "/image-product-1.jpg" },
-  { altText: "Editorial shoe scene", filePath: "/image-product-2.jpg" },
-  { altText: "Individual shoe on stones", filePath: "/image-product-3.jpg" },
-  {
-    altText: "Side profile of shoe on a stone",
-    filePath: "/image-product-4.jpg",
-  },
-  {
-    thumbnails: [
-      { altText: "Shoe and sole", filePath: "/image-product-1-thumbnail.jpg" },
-      {
-        altText: "Editorial shoe scene",
-        filePath: "/image-product-2-thumbnail.jpg",
-      },
-      {
-        altText: "Individual shoe on stones",
-        filePath: "/image-product-3-thumbnail.jpg",
-      },
-      {
-        altText: "Side profile of shoe on a stone",
-        filePath: "/image-product-4-thumbnail.jpg",
-      },
-    ],
-  },
-];
+export const ShoeImages: {
+  fullImages: { filePath: string; altText: string }[];
+  thumbnails: { filePath: string; altText: string }[];
+} = {
+  fullImages: [
+    { altText: "Shoe and sole", filePath: "/image-product-1.jpg" },
+    { altText: "Editorial shoe scene", filePath: "/image-product-2.jpg" },
+    { altText: "Individual shoe on stones", filePath: "/image-product-3.jpg" },
+    {
+      altText: "Side profile of shoe on a stone",
+      filePath: "/image-product-4.jpg",
+    },
+  ],
+  thumbnails: [
+    { altText: "Shoe and sole", filePath: "/image-product-1-thumbnail.jpg" },
+    {
+      altText: "Editorial shoe scene",
+      filePath: "/image-product-2-thumbnail.jpg",
+    },
+    {
+      altText: "Individual shoe on stones",
+      filePath: "/image-product-3-thumbnail.jpg",
+    },
+    {
+      altText: "Side profile of shoe on a stone",
+      filePath: "/image-product-4-thumbnail.jpg",
+    },
+  ],
+};
 
 const ShoeData: {
   companyName: string;
@@ -41,10 +38,9 @@ const ShoeData: {
     originalPrice: number;
   };
   image: {
-    thumbnails: any;
-    altText: string;
-    filePath: string;
-  }[];
+    fullImages: { filePath: string; altText: string }[];
+    thumbnails: { filePath: string; altText: string }[];
+  };
 } = {
   companyName: "Sneaker Company",
   productName: "Fall Limited Edition Sneakers",
