@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./Carousel.module.scss";
 import Image from "next/image";
 import ShoeData from "../../data/ShoeData/ShoeData";
+import LightBoxGallery from "../LightBoxGallery/LightBoxGallery.component";
 
 type CarouselItemProps = {
   children?: JSX.Element | JSX.Element[];
@@ -11,6 +12,7 @@ type CarouselItemProps = {
     filePath: string;
     altText: string;
   };
+  onClick: () => void;
 };
 
 type CarouselProps = {
@@ -52,17 +54,24 @@ export function CarouselItem({
   children,
   width,
   imageData,
+  onClick,
 }: CarouselItemProps): JSX.Element {
   return (
     <>
       {
         <li className={style.CarouselItem} style={{ width: width }}>
-          <Image
-            src={imageData.filePath}
-            alt={imageData.altText}
-            className={style.CarouselItem__Image}
-            fill={true}
-          />
+          <button
+            onClick={() => {
+              onClick();
+            }}
+          >
+            <Image
+              src={imageData.filePath}
+              alt={imageData.altText}
+              className={style.CarouselItem__Image}
+              fill={true}
+            />
+          </button>
         </li>
       }
       {children}
@@ -93,7 +102,9 @@ function Carousel({ children, thumbnails }: CarouselProps) {
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, { width: "100%" });
+          return React.cloneElement(child, {
+            width: "100%",
+          });
         })}
       </ul>
       <ul className={style.Carousel__buttonContainer} role="list">

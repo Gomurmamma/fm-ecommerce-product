@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import style from "./Product.module.scss";
 import Carousel from "../Carousel/Carousel.component";
-import Gallery from "../Gallery/Gallery.component";
+import { GalleryItem } from "../LightBoxGallery/LightBoxGallery.component";
+import LightBoxGallery from "../LightBoxGallery/LightBoxGallery.component";
 import {
   CarouselItem,
   CarouselThumbnail,
@@ -42,6 +43,12 @@ type Props = {
 function Product({ productData, imageData, children }: Props): JSX.Element {
   const [itemQuantity, setItemQuantity] = useState(0);
 
+  const [displayLightBox, setDisplayLightbox] = useState(false);
+
+  const updateLightBox = (): void => {
+    setDisplayLightbox(!displayLightBox);
+  };
+
   const decrementItemQuantity = (): void => {
     if (itemQuantity > 0) {
       setItemQuantity(itemQuantity - 1);
@@ -62,6 +69,20 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
 
   return (
     <figure className={style.Product}>
+      {displayLightBox ? (
+        <LightBoxGallery
+          thumbnails={imageData.thumbnails}
+          updateLightBox={updateLightBox}
+        >
+          <>
+            {imageData.fullImages.map((image, index) => (
+              <GalleryItem imageData={image} />
+            ))}
+          </>
+        </LightBoxGallery>
+      ) : (
+        <></>
+      )}
       <Carousel thumbnails={imageData.thumbnails}>
         <>
           {imageData.fullImages.map((image, index) => (
@@ -69,6 +90,7 @@ function Product({ productData, imageData, children }: Props): JSX.Element {
               width="100%"
               imageData={image}
               key={index}
+              onClick={updateLightBox}
             ></CarouselItem>
           ))}
         </>
