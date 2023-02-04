@@ -9,13 +9,22 @@
   margin: 1rem;
   height: 5rem;
 
+  & :first-child {
+    margin-left: 3%;
+  }
+
+  & :last-child {
+    margin-right: 3%;
+  }
+
   &__menuGroup {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    outline: 2px solid yellow;
+
     margin-top: 6%;
+    outline: 2px solid red;
   }
 
   &__profileIconFrame {
