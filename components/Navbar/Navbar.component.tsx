@@ -4,6 +4,7 @@ import Link from "next/link";
 import MenuIcon from "../../public/icon-menu.svg";
 import CartIcon from "../../public/icon-cart.svg";
 import LogoIcon from "../../public/logo.svg";
+import CloseIcon from "../../public/icon-close.svg";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -98,8 +99,13 @@ function Navbar({
         className={sideMenu === false ? style.SideMenu : style.SideMenu__active}
       >
         <ul className={style.SideMenu__content} role="list">
-          <li>
-            <button onClick={showSideMenu}>X</button>
+          <li className={style.SideMenu__buttonContainer}>
+            <button
+              onClick={showSideMenu}
+              className={style.SideMenu__buttonContainer__button}
+            >
+              <CloseIcon />
+            </button>
           </li>
           {menuLinksData?.map((destination, index) => {
             return (
