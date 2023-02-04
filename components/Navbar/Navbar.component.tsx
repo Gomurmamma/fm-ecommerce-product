@@ -97,14 +97,19 @@ function Navbar({
       <nav
         className={sideMenu === false ? style.SideMenu : style.SideMenu__active}
       >
-        <ul className={style.SideMenu__content}>
+        <ul className={style.SideMenu__content} role="list">
           <li>
             <button onClick={showSideMenu}>X</button>
           </li>
           {menuLinksData?.map((destination, index) => {
             return (
-              <li key={index}>
-                <Link href={destination.linkPath}>{destination.title}</Link>
+              <li key={index} className={style.SideMenu__menuItem}>
+                <Link
+                  href={destination.linkPath}
+                  className={style.SideMenu__menuItem__link}
+                >
+                  {destination.title}
+                </Link>
               </li>
             );
           })}
