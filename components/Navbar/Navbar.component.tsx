@@ -57,8 +57,8 @@ function Navbar({
                 </button>
               </li>
               <li>
-                <Link href="/">
-                  <LogoIcon />
+                <Link href="/" className={style.NavBar__logoContainer}>
+                  <LogoIcon className={style.NavBar__logoContainer__logo} />
                 </Link>
               </li>
               <li className={style.NavBar__horizontalMenu}>

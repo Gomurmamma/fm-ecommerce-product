@@ -10,11 +10,11 @@
   height: 5rem;
 
   & :first-child {
-    margin-left: 3%;
+    margin-left: 4%;
   }
 
   & :last-child {
-    margin-right: 3%;
+    margin-right: 4%;
   }
 
   &__menuGroup {
@@ -24,7 +24,6 @@
     align-items: center;
 
     margin-top: 6%;
-    outline: 2px solid red;
   }
 
   &__profileIconFrame {
@@ -40,10 +39,17 @@
     @include desktop {
       display: none;
     }
+    margin-right: 4%;
 
     &__button {
       background-color: var(--color-bg-primary);
       border: none;
+    }
+  }
+
+  &__logoContainer {
+    &__logo {
+      margin-left: 4%;
     }
   }
 
