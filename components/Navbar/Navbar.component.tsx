@@ -48,14 +48,17 @@ function Navbar({
         <ul className={style.NavBar}>
           <li>
             <ul className={style.NavBar__menuGroup}>
-              <li className={style.NavBar__sideMenuButton}>
-                <button onClick={showSideMenu}>
+              <li className={style.NavBar__sideMenuButtonContainer}>
+                <button
+                  onClick={showSideMenu}
+                  className={style.NavBar__sideMenuButtonContainer__button}
+                >
                   <MenuIcon />
                 </button>
               </li>
               <li>
-                <Link href="/">
-                  <LogoIcon />
+                <Link href="/" className={style.NavBar__logoContainer}>
+                  <LogoIcon className={style.NavBar__logoContainer__logo} />
                 </Link>
               </li>
               <li className={style.NavBar__horizontalMenu}>
@@ -76,9 +79,16 @@ function Navbar({
           <li>
             <ul className={style.NavBar__menuGroup}>
               <li className={style.NavBar__rightItem}>
-                <button onClick={showCartModal}>
+                <button
+                  onClick={showCartModal}
+                  className={style.NavBar__cartButtonContainer}
+                >
                   <CartIcon />
-                  <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
+                  <span
+                    className={style.NavBar__cartButtonContainer__itemCount}
+                  >
+                    {getItemsCount() > 0 ? getItemsCount() : ""}
+                  </span>
                 </button>
               </li>
               <li className={style.NavBar__rightItem}>

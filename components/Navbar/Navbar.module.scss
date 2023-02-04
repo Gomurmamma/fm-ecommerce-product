@@ -7,25 +7,101 @@
 
   list-style: none;
   margin: 1rem;
+  height: 5rem;
+
+  & > * {
+    height: 3rem;
+
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  & :first-child {
+    margin-left: 4%;
+  }
+
+  & :last-child {
+    margin-right: 4%;
+  }
 
   &__menuGroup {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+    padding-top: 5%;
   }
 
   &__profileIconFrame {
     position: relative;
-    height: 115%;
-    width: 2.75rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-top: -40%;
 
     &__Image {
     }
   }
 
-  &__sideMenuButton {
+  &__sideMenuButtonContainer {
     @include desktop {
       display: none;
+    }
+    margin-right: 4%;
+
+    &__button {
+      background-color: var(--color-bg-primary);
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+
+      &:focus {
+        outline: 0.1em var(--color-focus-indicator) solid;
+        outline-offset: 0.1rem;
+      }
+
+      &:focus:not(:focus-visible) {
+        /* when not in focus - undo focus styles*/
+        outline: 0;
+        outline-offset: 0.25rem;
+      }
+
+      &:focus-visible {
+        /* keyboard navigators */
+        outline: 0.25em var(--color-focus-indicator) dashed;
+        outline-offset: 0.25rem;
+      }
+    }
+  }
+
+  &__logoContainer {
+    &__logo {
+      margin-left: 4%;
+    }
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      outline: 0.1em var(--color-focus-indicator) solid;
+      outline-offset: 0.1rem;
+    }
+
+    &:focus:not(:focus-visible) {
+      /* when not in focus - undo focus styles*/
+      outline: 0;
+      outline-offset: 0.25rem;
+    }
+
+    &:focus-visible {
+      /* keyboard navigators */
+      outline: 0.25em var(--color-focus-indicator) dashed;
+      outline-offset: 0.25rem;
     }
   }
 
@@ -40,6 +116,48 @@
   &__linksContainer {
     display: flex;
     flex-direction: row;
+  }
+
+  &__cartButtonContainer {
+    border: none;
+    background-color: var(--color-bg-primary);
+    padding-right: 1.5rem;
+
+    &__button {
+    }
+
+    &__itemCount {
+      font-size: 1.2rem;
+      border-radius: 3rem;
+      width: 1.75rem;
+      background-color: var(--background-color-orange);
+      color: var(--color-gray-blue-light);
+      position: fixed;
+      top: 1.3%;
+      left: 81.5%;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      outline: 0.1em var(--color-focus-indicator) solid;
+      outline-offset: 0.1rem;
+    }
+
+    &:focus:not(:focus-visible) {
+      /* when not in focus - undo focus styles*/
+      outline: 0;
+      outline-offset: 0.25rem;
+    }
+
+    &:focus-visible {
+      /* keyboard navigators */
+      outline: 0.25em var(--color-focus-indicator) dashed;
+      outline-offset: 0.25rem;
+    }
   }
 }
 
