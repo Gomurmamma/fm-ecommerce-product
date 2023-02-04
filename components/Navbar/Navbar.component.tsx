@@ -48,8 +48,11 @@ function Navbar({
         <ul className={style.NavBar}>
           <li>
             <ul className={style.NavBar__menuGroup}>
-              <li className={style.NavBar__sideMenuButton}>
-                <button onClick={showSideMenu}>
+              <li className={style.NavBar__sideMenuButtonContainer}>
+                <button
+                  onClick={showSideMenu}
+                  className={style.NavBar__sideMenuButtonContainer__button}
+                >
                   <MenuIcon />
                 </button>
               </li>

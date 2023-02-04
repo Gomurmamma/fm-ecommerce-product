@@ -23,9 +23,14 @@
     }
   }
 
-  &__sideMenuButton {
+  &__sideMenuButtonContainer {
     @include desktop {
       display: none;
+    }
+
+    &__button {
+      background-color: var(--color-bg-primary);
+      border: none;
     }
   }
 
