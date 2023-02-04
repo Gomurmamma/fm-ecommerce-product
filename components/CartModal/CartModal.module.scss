@@ -10,6 +10,7 @@
   border-radius: 0.5rem;
 
   background-color: var(--color-gray-blue-light);
+
   width: 90%;
   opacity: 0;
 
@@ -26,6 +27,7 @@
     border-radius: 0.5rem;
 
     background-color: var(--color-gray-blue-light);
+    height: 27rem;
     width: 90%;
     opacity: 1;
     pointer-events: all;
@@ -42,5 +44,9 @@
       height: 5rem;
       width: 5rem;
     }
+  }
+
+  &__text {
+    border-bottom: 2px solid var(--color-gray-blue);
   }
 }

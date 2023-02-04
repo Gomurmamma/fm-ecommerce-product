@@ -45,8 +45,8 @@ function CartModal({ cartModal }: Props): JSX.Element {
       id="cart"
     >
       <div className={Style.CartModal__content}>
-        <h4>Cart</h4>
-        <hr></hr>
+        <h4 className={Style.CartModal__text}>Cart</h4>
+
         {getItemCount() > 0 ? (
           <>
             <figure>
