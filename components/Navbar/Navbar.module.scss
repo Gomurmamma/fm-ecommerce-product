@@ -30,6 +30,7 @@
     position: relative;
     height: 2.5rem;
     width: 2.5rem;
+    margin-top: -40%;
 
     &__Image {
     }
@@ -64,6 +65,14 @@
   &__linksContainer {
     display: flex;
     flex-direction: row;
+  }
+
+  &__cartButtonContainer {
+    border: none;
+    background-color: var(--color-bg-primary);
+
+    &__button {
+    }
   }
 }
 

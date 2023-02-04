@@ -79,7 +79,10 @@ function Navbar({
           <li>
             <ul className={style.NavBar__menuGroup}>
               <li className={style.NavBar__rightItem}>
-                <button onClick={showCartModal}>
+                <button
+                  onClick={showCartModal}
+                  className={style.NavBar__cartButtonContainer}
+                >
                   <CartIcon />
                   <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
                 </button>
