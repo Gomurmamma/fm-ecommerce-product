@@ -70,8 +70,20 @@
   &__cartButtonContainer {
     border: none;
     background-color: var(--color-bg-primary);
+    padding-right: 1.5rem;
 
     &__button {
+    }
+
+    &__itemCount {
+      font-size: 1.2rem;
+      border-radius: 3rem;
+      width: 1.75rem;
+      background-color: var(--background-color-orange);
+      color: var(--color-gray-blue-light);
+      position: fixed;
+      top: 0.75%;
+      left: 81.5%;
     }
   }
 }

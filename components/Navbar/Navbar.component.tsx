@@ -84,7 +84,11 @@ function Navbar({
                   className={style.NavBar__cartButtonContainer}
                 >
                   <CartIcon />
-                  <span>{getItemsCount() > 0 ? getItemsCount() : ""}</span>
+                  <span
+                    className={style.NavBar__cartButtonContainer__itemCount}
+                  >
+                    {getItemsCount() > 0 ? getItemsCount() : ""}
+                  </span>
                 </button>
               </li>
               <li className={style.NavBar__rightItem}>
