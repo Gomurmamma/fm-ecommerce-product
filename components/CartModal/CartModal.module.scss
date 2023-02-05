@@ -52,16 +52,23 @@
 
     &__image {
       border-radius: 0.25rem;
-      margin-left: -30%;
+      margin-left: -20%;
     }
 
     &__details {
-      outline: 1px solid red;
       display: flex;
       flex-direction: column;
 
       color: var(--text-gray);
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+    }
+
+    &__productName {
+      margin-bottom: 5%;
+    }
+
+    &__finalPrice {
+      font-weight: 700;
     }
   }
 
@@ -90,7 +97,7 @@
       flex-direction: row;
 
       width: 95%;
-      outline: 2px solid green;
+
       justify-content: space-evenly;
       align-items: center;
     }

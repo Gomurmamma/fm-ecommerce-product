@@ -65,10 +65,14 @@ function CartModal({ cartModal }: Props): JSX.Element {
                       className={Style.CartModal__content__details}
                       role="list"
                     >
-                      <li>{getItemName().replace(/\d/g, "")}</li>
+                      <li className={Style.CartModal__content__productName}>
+                        {getItemName().replace(/\d/g, "")}
+                      </li>
                       <li>
-                        ${getItemPrice()}.00 x {getItemCount()} $
-                        {getItemCount() * getItemPrice()}.00
+                        ${getItemPrice()}.00 x {getItemCount()}{" "}
+                        <span className={Style.CartModal__content__finalPrice}>
+                          ${getItemCount() * getItemPrice()}.00
+                        </span>
                       </li>
                     </ul>
                   </figcaption>
