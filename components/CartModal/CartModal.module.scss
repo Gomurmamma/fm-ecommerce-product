@@ -18,10 +18,11 @@
   transition: all 0.3s ease-in-out;
 
   &__visible {
+    padding: 1rem;
     transition: all 0.3s ease-in-out;
     position: fixed;
     z-index: 3;
-    border: 2px solid yellow;
+
     margin-top: 2%;
     margin-left: 4.5%;
     border-radius: 0.5rem;
@@ -47,6 +48,18 @@
   }
 
   &__text {
-    border-bottom: 2px solid var(--color-gray-blue);
+    margin: 6% 1rem;
+  }
+
+  &__emptyText {
+    color: var(--color-text-gray);
+    padding-top: 25%;
+    border-top: 2px solid var(--color-gray-blue);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__cartItems {
+    border-top: 2px solid var(--color-gray-blue);
   }
 }

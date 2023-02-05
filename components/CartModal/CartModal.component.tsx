@@ -49,7 +49,7 @@ function CartModal({ cartModal }: Props): JSX.Element {
 
         {getItemCount() > 0 ? (
           <>
-            <figure>
+            <figure className={Style.CartModal__cartItems}>
               <ul>
                 <li className={Style.CartModal__content__imageFrame}>
                   <Image
@@ -85,7 +85,7 @@ function CartModal({ cartModal }: Props): JSX.Element {
             <button>Checkout</button>
           </>
         ) : (
-          <p>Your cart is empty</p>
+          <p className={Style.CartModal__emptyText}>Your cart is empty</p>
         )}
       </div>
     </section>
