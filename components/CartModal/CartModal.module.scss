@@ -61,5 +61,10 @@
 
   &__cartItems {
     border-top: 2px solid var(--color-gray-blue);
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
