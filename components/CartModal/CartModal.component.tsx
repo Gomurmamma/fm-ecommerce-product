@@ -61,7 +61,10 @@ function CartModal({ cartModal }: Props): JSX.Element {
                 </li>
                 <li>
                   <figcaption>
-                    <ul className={Style.CartModal__content__details}>
+                    <ul
+                      className={Style.CartModal__content__details}
+                      role="list"
+                    >
                       <li>{getItemName().replace(/\d/g, "")}</li>
                       <li>
                         ${getItemPrice()}.00 x {getItemCount()} $
