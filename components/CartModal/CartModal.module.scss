@@ -40,10 +40,18 @@
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
+
     &__imageFrame {
       position: relative;
       height: 5rem;
       width: 5rem;
+      border-radius: 5rem;
+    }
+
+    &__image {
+      border-radius: 0.25rem;
     }
   }
 
@@ -61,10 +69,24 @@
 
   &__cartItems {
     border-top: 2px solid var(--color-gray-blue);
+    outline: 2px solid green;
 
     &__container {
       display: flex;
       flex-direction: row;
+      outline: 2px solid red;
     }
+  }
+
+  &__checkoutButton {
+    font-weight: 700;
+    color: var(--color-text-white);
+    padding: 2rem;
+    align-self: center;
+    margin-top: 20%;
+    background-color: var(--color-element-primary);
+    border: none;
+    border-radius: 0.5rem;
+    width: 90%;
   }
 }

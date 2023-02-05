@@ -56,6 +56,7 @@ function CartModal({ cartModal }: Props): JSX.Element {
                     src={productData.image.thumbnails[0].filePath}
                     alt={productData.image.thumbnails[0].altText}
                     fill={true}
+                    className={Style.CartModal__content__image}
                   />
                 </li>
                 <li>
@@ -82,7 +83,9 @@ function CartModal({ cartModal }: Props): JSX.Element {
                 </li>
               </ul>
             </figure>
-            <button>Checkout</button>
+            <button className={Style.CartModal__checkoutButton}>
+              Checkout
+            </button>
           </>
         ) : (
           <p className={Style.CartModal__emptyText}>Your cart is empty</p>
