@@ -10,6 +10,7 @@
   border-radius: 0.5rem;
 
   background-color: var(--color-gray-blue-light);
+
   width: 90%;
   opacity: 0;
 
@@ -17,15 +18,17 @@
   transition: all 0.3s ease-in-out;
 
   &__visible {
+    padding: 1rem;
     transition: all 0.3s ease-in-out;
     position: fixed;
     z-index: 3;
-    border: 2px solid yellow;
+
     margin-top: 2%;
     margin-left: 4.5%;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
 
     background-color: var(--color-gray-blue-light);
+    height: 27rem;
     width: 90%;
     opacity: 1;
     pointer-events: all;
@@ -37,10 +40,84 @@
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
+
     &__imageFrame {
       position: relative;
       height: 5rem;
       width: 5rem;
+      border-radius: 5rem;
     }
+
+    &__image {
+      border-radius: 0.25rem;
+      margin-left: -20%;
+    }
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+
+      color: var(--text-gray);
+      font-size: 1.4rem;
+    }
+
+    &__productName {
+      margin-bottom: 5%;
+    }
+
+    &__finalPrice {
+      color: var(--color-text-primary);
+      font-weight: 700;
+    }
+
+    &__deleteButton {
+      background-color: var(--color-bg-primary);
+      border: none;
+    }
+  }
+
+  &__text {
+    margin: 6% 1rem;
+  }
+
+  &__emptyText {
+    color: var(--color-text-gray);
+    padding-top: 25%;
+    border-top: 2px solid var(--color-gray-blue);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__cartItems {
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid var(--color-gray-blue);
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+
+      width: 95%;
+
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  &__checkoutButton {
+    font-weight: 700;
+    color: var(--color-text-white);
+    padding: 1.5rem;
+    align-self: center;
+    margin-top: 2%;
+    background-color: var(--color-element-primary);
+    border: none;
+    border-radius: 0.75rem;
+    width: 95%;
   }
 }

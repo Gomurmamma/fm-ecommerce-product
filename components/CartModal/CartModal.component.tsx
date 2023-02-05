@@ -45,26 +45,34 @@ function CartModal({ cartModal }: Props): JSX.Element {
       id="cart"
     >
       <div className={Style.CartModal__content}>
-        <h4>Cart</h4>
-        <hr></hr>
+        <h4 className={Style.CartModal__text}>Cart</h4>
+
         {getItemCount() > 0 ? (
           <>
-            <figure>
-              <ul>
+            <figure className={Style.CartModal__cartItems}>
+              <ul role="list" className={Style.CartModal__cartItems__container}>
                 <li className={Style.CartModal__content__imageFrame}>
                   <Image
                     src={productData.image.thumbnails[0].filePath}
                     alt={productData.image.thumbnails[0].altText}
                     fill={true}
+                    className={Style.CartModal__content__image}
                   />
                 </li>
                 <li>
                   <figcaption>
-                    <ul>
-                      <li>{getItemName().replace(/\d/g, "")}</li>
+                    <ul
+                      className={Style.CartModal__content__details}
+                      role="list"
+                    >
+                      <li className={Style.CartModal__content__productName}>
+                        {getItemName().replace(/\d/g, "")}
+                      </li>
                       <li>
-                        ${getItemPrice()}.00 x {getItemCount()} $
-                        {getItemCount() * getItemPrice()}.00
+                        ${getItemPrice()}.00 x {getItemCount()}{" "}
+                        <span className={Style.CartModal__content__finalPrice}>
+                          ${getItemCount() * getItemPrice()}.00
+                        </span>
                       </li>
                     </ul>
                   </figcaption>
@@ -76,16 +84,19 @@ function CartModal({ cartModal }: Props): JSX.Element {
                         removeFromCart(getItemName().replace(/\d/g, ""))
                       );
                     }}
+                    className={Style.CartModal__content__deleteButton}
                   >
                     <DeleteIcon />
                   </button>
                 </li>
               </ul>
             </figure>
-            <button>Checkout</button>
+            <button className={Style.CartModal__checkoutButton}>
+              Checkout
+            </button>
           </>
         ) : (
-          <p>Your cart is empty</p>
+          <p className={Style.CartModal__emptyText}>Your cart is empty</p>
         )}
       </div>
     </section>
