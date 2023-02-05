@@ -84,6 +84,7 @@ function CartModal({ cartModal }: Props): JSX.Element {
                         removeFromCart(getItemName().replace(/\d/g, ""))
                       );
                     }}
+                    className={Style.CartModal__content__deleteButton}
                   >
                     <DeleteIcon />
                   </button>

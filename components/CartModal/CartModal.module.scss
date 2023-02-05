@@ -70,6 +70,11 @@
     &__finalPrice {
       font-weight: 700;
     }
+
+    &__deleteButton {
+      background-color: var(--color-bg-primary);
+      border: none;
+    }
   }
 
   &__text {
