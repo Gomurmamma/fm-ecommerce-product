@@ -50,7 +50,7 @@ function CartModal({ cartModal }: Props): JSX.Element {
         {getItemCount() > 0 ? (
           <>
             <figure className={Style.CartModal__cartItems}>
-              <ul>
+              <ul role="list">
                 <li className={Style.CartModal__content__imageFrame}>
                   <Image
                     src={productData.image.thumbnails[0].filePath}
